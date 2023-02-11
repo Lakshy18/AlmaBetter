@@ -9,18 +9,22 @@ import ViewCard from "./components/flashcard/viewCard";
 import { useSelector } from "react-redux";
 
 function App() {
+  const flashCardNum = useSelector((state) => state.Reducer.showNum);
 
-  const flashCardNum = useSelector(state => state.Reducer.showNum)
   return (
     <>
       <BrowserRouter>
-        <Navbar />
-        <Header />
-        <Routes>
-          <Route index path="/" element={<MainFlashcard />} />
-          <Route path="myflashcard" element={<MyFlashcard />} />
-          <Route path={`flashcard${flashCardNum}`} element={<ViewCard/>}/>
-        </Routes>
+        <div className="bg-black">
+          <Navbar />
+          <div className="px-0 lg:px-40 sm:px-8">
+            <Header />
+            <Routes>
+              <Route index path="/" element={<MainFlashcard />} />
+              <Route path="myflashcard" element={<MyFlashcard />} />
+              <Route path={`flashcard${flashCardNum}`} element={<ViewCard />} />
+            </Routes>
+          </div>
+        </div>
       </BrowserRouter>
     </>
   );

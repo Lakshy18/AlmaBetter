@@ -1,4 +1,4 @@
-import { FORM_DATA } from "../types";
+import { FORM_DATA, SHOW_FLASH_CARD } from "../types";
 
 const inputlocal = localStorage.getItem("card-input");
 
@@ -17,6 +17,11 @@ export const Reducer = (state = initialState, action) => {
       return {
         ...state,
         inputData: [...state.inputData, action.payload],
+      };
+    case SHOW_FLASH_CARD:
+      return {
+        ...state,
+        showNum: action.payload,
       };
 
     default:

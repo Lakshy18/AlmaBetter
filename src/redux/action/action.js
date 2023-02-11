@@ -1,4 +1,4 @@
-import { FORM_DATA } from "../types";
+import { FORM_DATA, SHOW_FLASH_CARD } from "../types";
 
 export const formData = (groupData, termsData) => {
   return {
@@ -7,5 +7,12 @@ export const formData = (groupData, termsData) => {
       groupData,
       termsData,
     },
+  };
+};
+
+export const showCardData = (cardNum) => {
+  return {
+    type: SHOW_FLASH_CARD,
+    payload: cardNum,
   };
 };
